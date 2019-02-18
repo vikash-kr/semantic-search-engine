@@ -1,0 +1,24 @@
+{
+  "name": "semantic-search-engine",
+  "version": "1.0.0",
+  "description": "Gives result as RDF format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikash-kr/semantic-search-engine.git"
+  },
+  "author": "Vikash Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vikash-kr/semantic-search-engine/issues"
+  },
+  "homepage": "https://github.com/vikash-kr/semantic-search-engine#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+}
