@@ -2,11 +2,31 @@ const express = require('express')
 const app = express()
 const port = 3000
 const rp = require('request-promise')
+var bodyParser = require("body-parser");
+
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + "/public"));
+
+// setting up body parser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get('/', 
 	function(req, res) 
-	{ 
-		res.send('Hello World!')
+	{  
+	 let a;
+	 rp(options)
+  .then(function (data) {
+    // Request succeeded
+    a= JSON.stringify(data,null,2);
+    //console.log(JSON.stringify(data,null,2));
+    res.render('index',{data:data});
+  })
+  .catch(function (err) {
+    // Request failed
+    console.log(err.statusCode + ': ' + err.error);
+  });
+
 	}
 )
 
@@ -25,14 +45,6 @@ var options = {
   json: true
 };
 
-rp(options)
-  .then(function (data) {
-    // Request succeeded
-    console.log(JSON.stringify(data,null,2));
-  })
-  .catch(function (err) {
-    // Request failed
-    console.log(err.statusCode + ': ' + err.error);
-  });
+
 
 app.listen(port, () => console.log("Example app listening on port " + port))
